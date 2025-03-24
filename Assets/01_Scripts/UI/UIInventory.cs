@@ -26,8 +26,7 @@ public class UIInventory : MonoBehaviour
 
         for (int i = 0; i < 120; i++)
         {
-            var slot = Instantiate(uiSlotPrefabs, content);
-            slot.SetItem(null);
+            UISlot slot = Instantiate(uiSlotPrefabs, content);
             uiSlotList.Add(slot);
         }
     }

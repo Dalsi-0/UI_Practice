@@ -11,11 +11,13 @@ public class UISlot : MonoBehaviour
     [SerializeField] private bool isEquip;
     [SerializeField] private GameObject equipObject;
 
-    public ItemSO GetItemData()
+    private void Start()
     {
-        return itemData;
+        itemData = null;
+        icon.enabled = false;
+        equipObject.SetActive(false);
+        isEquip = false;
     }
-
     public void SetItem(ItemSO itemData)
     {
         this.itemData = itemData;
@@ -24,6 +26,13 @@ public class UISlot : MonoBehaviour
 
     public void RefreshUI()
     {
+        icon.enabled = true;
         icon.sprite = itemData.ItemIcon;
     }
+
+    public ItemSO GetItemData()
+    {
+        return itemData;
+    }
+
 }

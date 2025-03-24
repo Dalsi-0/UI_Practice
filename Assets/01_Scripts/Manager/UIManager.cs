@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
 
+    [SerializeField] Button buttonRandomGachaItem;
+    [SerializeField] GameObject canvasMainMenu;
+    [SerializeField] GameObject canvasStatus;
+    [SerializeField] GameObject canvasInventory;
     [SerializeField] UIMainMenu uiMainMenu;
     [SerializeField] UIStatus uiStatus;
     [SerializeField] UIInventory uiInventory;
@@ -20,6 +25,8 @@ public class UIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            buttonRandomGachaItem.onClick.AddListener(RandomGachaItem);
+            OpenMainMenu();
         }
         else
         {
@@ -29,21 +36,28 @@ public class UIManager : MonoBehaviour
 
     public void OpenMainMenu()
     {
-        UIStatus.gameObject.SetActive(false);
-        UIInventory.gameObject.SetActive(false);
+        canvasStatus.SetActive(false);
+        canvasInventory.SetActive(false);
     }
 
 
     public void OpenStatus()
     {
-        UIStatus.gameObject.SetActive(true);
-        UIInventory.gameObject.SetActive(false);
+        canvasStatus.SetActive(true);
+        canvasInventory.SetActive(false);
         UIStatus.RefreshUI();
     }
 
     public void OpenInventory()
     {
-        UIStatus.gameObject.SetActive(false);
-        UIInventory.gameObject.SetActive(true);
+        canvasStatus.SetActive(false);
+        canvasInventory.SetActive(true);
+    }
+
+    public void RandomGachaItem()
+    {
+        ItemSO[] list = GameManager.Instance.GetAllItems();
+        int randomIndex = Random.Range(0, list.Length);
+        GameManager.Instance.GetPlayer().Additem(list[randomIndex]);
     }
 }

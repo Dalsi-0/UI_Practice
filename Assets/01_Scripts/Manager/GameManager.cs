@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private Character player;
-    [SerializeField] ItemSO[] defaultEquipment;
-
+    [SerializeField] private ItemSO[] allItems;
 
     private void Awake()
     {
@@ -15,6 +14,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             SetData("myName", 12, 10, 7, 9999, 10, 5, 50, 0);
+
         }
         else
         {
@@ -22,17 +22,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        for (int i = 0; i < defaultEquipment.Length; i++)
-        {
-            player.Additem(defaultEquipment[i]);
-        }
-    }
-
     public Character GetPlayer()
     {
         return player;
+    }
+
+    public ItemSO[] GetAllItems()
+    {
+        return allItems;
     }
 
 
