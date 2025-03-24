@@ -8,8 +8,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] Button backButton;
     [SerializeField] Transform content;
     [SerializeField] UISlot uiSlotPrefabs;
-    public List<UISlot> uiSlotList;
-
+    [SerializeField] List<UISlot> uiSlotList;
     [SerializeField] ItemSO[] defaultEquipment;
 
     private void Start()
@@ -23,6 +22,7 @@ public class UIInventory : MonoBehaviour
         UISlot obj = Instantiate(uiSlotPrefabs, content);
         obj.SetItem(itemData);
         obj.RefreshUI();
+        uiSlotList.Add(obj);
     }
 
     public void InitInventoryUI()
@@ -31,5 +31,10 @@ public class UIInventory : MonoBehaviour
         {
             AddItem(defaultEquipment[i]);
         }
+    }
+
+    public List<UISlot> GetUISlotList()
+    {
+        return uiSlotList;
     }
 }
