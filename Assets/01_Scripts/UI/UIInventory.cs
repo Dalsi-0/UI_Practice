@@ -9,7 +9,6 @@ public class UIInventory : MonoBehaviour
     [SerializeField] Transform content;
     [SerializeField] UISlot uiSlotPrefabs;
     [SerializeField] List<UISlot> uiSlotList;
-    [SerializeField] ItemSO[] defaultEquipment;
 
     private void Start()
     {
@@ -17,24 +16,32 @@ public class UIInventory : MonoBehaviour
         backButton.onClick.AddListener(UIManager.Instance.OpenMainMenu);
     }
 
-    public void AddItem(ItemSO itemData)
-    {
-        UISlot obj = Instantiate(uiSlotPrefabs, content);
-        obj.SetItem(itemData);
-        obj.RefreshUI();
-        uiSlotList.Add(obj);
-    }
-
     public void InitInventoryUI()
     {
-        for (int i = 0; i < defaultEquipment.Length; i++)
+        foreach (Transform child in content)
         {
-            AddItem(defaultEquipment[i]);
+            Destroy(child.gameObject);
+        }
+        uiSlotList.Clear();
+
+        for (int i = 0; i < 120; i++)
+        {
+            var slot = Instantiate(uiSlotPrefabs, content);
+            slot.SetItem(null);
+            uiSlotList.Add(slot);
         }
     }
 
-    public List<UISlot> GetUISlotList()
+    public void AddItem(ItemSO itemData)
     {
-        return uiSlotList;
+        for (int i = 0; i < uiSlotList.Count; i++)
+        {
+            if (uiSlotList[i].GetItemData() == null)
+            {
+                uiSlotList[i].SetItem(itemData);
+                uiSlotList[i].RefreshUI();
+                break;
+            }
+        }
     }
 }

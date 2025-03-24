@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private Character player;
+    [SerializeField] ItemSO[] defaultEquipment;
 
 
     private void Awake()
@@ -18,6 +19,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < defaultEquipment.Length; i++)
+        {
+            player.Additem(defaultEquipment[i]);
         }
     }
 

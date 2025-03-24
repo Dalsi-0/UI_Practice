@@ -7169,9 +7169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392106d4ff6d54a48a8a153340efcf44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIMainMenu: {fileID: 898921739}
-  UIStatus: {fileID: 1205525390}
-  UIInventory: {fileID: 1505317485}
+  uiMainMenu: {fileID: 898921739}
+  uiStatus: {fileID: 1205525390}
+  uiInventory: {fileID: 1505317485}
 --- !u!4 &1953767942
 Transform:
   m_ObjectHideFlags: 0

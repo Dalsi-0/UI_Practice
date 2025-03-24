@@ -11,6 +11,11 @@ public class UISlot : MonoBehaviour
     [SerializeField] private bool isEquip;
     [SerializeField] private GameObject equipObject;
 
+    public ItemSO GetItemData()
+    {
+        return itemData;
+    }
+
     public void SetItem(ItemSO itemData)
     {
         this.itemData = itemData;

@@ -7,9 +7,13 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
 
-    [SerializeField] UIMainMenu UIMainMenu;
-    [SerializeField] UIStatus UIStatus;
-    [SerializeField] UIInventory UIInventory;
+    [SerializeField] UIMainMenu uiMainMenu;
+    [SerializeField] UIStatus uiStatus;
+    [SerializeField] UIInventory uiInventory;
+    public UIMainMenu UIMainMenu => uiMainMenu;
+    public UIStatus UIStatus => uiStatus;
+    public UIInventory UIInventory => uiInventory;
+
 
     private void Awake()
     {
