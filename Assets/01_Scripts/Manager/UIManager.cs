@@ -6,11 +6,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
-    [SerializeField] UIInventory UIInventory;
+
     [SerializeField] UIMainMenu UIMainMenu;
     [SerializeField] UIStatus UIStatus;
-
-
+    [SerializeField] UIInventory UIInventory;
 
     private void Awake()
     {
@@ -22,5 +21,24 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void OpenMainMenu()
+    {
+        UIStatus.gameObject.SetActive(false);
+        UIInventory.gameObject.SetActive(false);
+    }
+
+
+    public void OpenStatus()
+    {
+        UIStatus.gameObject.SetActive(true);
+        UIInventory.gameObject.SetActive(false);
+    }
+
+    public void OpenInventory()
+    {
+        UIStatus.gameObject.SetActive(false);
+        UIInventory.gameObject.SetActive(true);
     }
 }
