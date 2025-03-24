@@ -6,9 +6,30 @@ using UnityEngine.UI;
 public class UIInventory : MonoBehaviour
 {
     [SerializeField] Button backButton;
+    [SerializeField] Transform content;
+    [SerializeField] UISlot uiSlotPrefabs;
+    public List<UISlot> uiSlotList;
+
+    [SerializeField] ItemSO[] defaultEquipment;
 
     private void Start()
     {
+        InitInventoryUI();
         backButton.onClick.AddListener(UIManager.Instance.OpenMainMenu);
+    }
+
+    public void AddItem(ItemSO itemData)
+    {
+        UISlot obj = Instantiate(uiSlotPrefabs, content);
+        obj.SetItem(itemData);
+        obj.RefreshUI();
+    }
+
+    public void InitInventoryUI()
+    {
+        for (int i = 0; i < defaultEquipment.Length; i++)
+        {
+            AddItem(defaultEquipment[i]);
+        }
     }
 }

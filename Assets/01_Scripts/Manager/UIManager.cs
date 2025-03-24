@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         UIStatus.gameObject.SetActive(true);
         UIInventory.gameObject.SetActive(false);
+        UIStatus.RefreshUI();
     }
 
     public void OpenInventory()

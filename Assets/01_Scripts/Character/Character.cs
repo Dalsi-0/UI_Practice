@@ -9,20 +9,20 @@ public class Character : MonoBehaviour
     public int exp { get; private set; }
     public int expMax { get; private set; }
     public int gold { get; private set; }
-    public int attack { get; private set; }
+    public int atk { get; private set; }
     public int def { get; private set; }
     public int hp { get; private set; }
     public int critical { get; private set; }
    // public List<ItemData> inventory;
 
-    public Character(string charName, int lv, int expMax, int exp, int gold, int attack, int def, int hp, int critical)
+    public Character(string charName, int lv, int expMax, int exp, int gold, int atk, int def, int hp, int critical)
     {
         this.charName = charName;
         this.lv = lv;
-        this.expMax = expMax;
         this.exp = exp;
+        this.expMax = expMax;
         this.gold = gold;
-        this.attack = attack;
+        this.atk = atk;
         this.def = def;
         this.hp = hp;
         this.critical = critical;
