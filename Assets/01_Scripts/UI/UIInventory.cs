@@ -16,6 +16,9 @@ public class UIInventory : MonoBehaviour
         backButton.onClick.AddListener(UIManager.Instance.OpenMainMenu);
     }
 
+    /// <summary>
+    /// 인벤토리 UI 초기화
+    /// </summary>
     public void InitInventoryUI()
     {
         foreach (Transform child in content)
@@ -31,6 +34,9 @@ public class UIInventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 인벤토리에 아이템 추가
+    /// </summary>
     public void AddItem(ItemSO itemData)
     {
         for (int i = 0; i < uiSlotList.Count; i++)

@@ -29,12 +29,18 @@ public class Character
         myInventory = new List<ItemSO>();
     }
 
+    /// <summary>
+    /// 아이템을 인벤토리에 추가
+    /// </summary>
     public void Additem(ItemSO itemData)
     {
         myInventory.Add(itemData);
         UIManager.Instance.UIInventory.AddItem(itemData);
     }
 
+    /// <summary>
+    /// 아이템 장착
+    /// </summary>
     public void Equip(ItemSO itemData)
     {
         atk += itemData.Atk;
@@ -43,6 +49,9 @@ public class Character
         critical += itemData.Critical;
     }
 
+    /// <summary>
+    /// 아이템 장착 해제
+    /// </summary>
     public void UnEquip(ItemSO itemData)
     {
         atk -= itemData.Atk;

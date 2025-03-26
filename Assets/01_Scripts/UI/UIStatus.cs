@@ -17,6 +17,9 @@ public class UIStatus : MonoBehaviour
         backButton.onClick.AddListener(UIManager.Instance.OpenMainMenu);
     }
 
+    /// <summary>
+    /// UI 새로고침
+    /// </summary>
     public void RefreshUI()
     {
         Character player = GameManager.Instance.GetPlayer();

@@ -34,13 +34,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 메인 메뉴 UI를 활성화하고 다른 UI는 비활성화
+    /// </summary>
     public void OpenMainMenu()
     {
         canvasStatus.SetActive(false);
         canvasInventory.SetActive(false);
     }
 
-
+    /// <summary>
+    /// 스테이터스 UI를 활성화하고 다른 UI는 비활성화
+    /// </summary>
     public void OpenStatus()
     {
         canvasStatus.SetActive(true);
@@ -48,12 +53,18 @@ public class UIManager : MonoBehaviour
         UIStatus.RefreshUI();
     }
 
+    /// <summary>
+    /// 인벤토리 UI를 활성화하고 다른 UI는 비활성화
+    /// </summary>
     public void OpenInventory()
     {
         canvasStatus.SetActive(false);
         canvasInventory.SetActive(true);
     }
 
+    /// <summary>
+    /// 랜덤 아이템을 획득하여 플레이어 인벤토리에 추가
+    /// </summary>
     public void RandomGachaItem()
     {
         ItemSO[] list = GameManager.Instance.GetAllItems();
